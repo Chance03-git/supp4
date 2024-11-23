@@ -8,6 +8,9 @@ def next_ten_numbers(num):
         A string containing the next 10 numbers separated by commas.
     """
     return ','.join(str(num + i) for i in range (1, 11))
+
+def list_to_comma_delimited_string(strings):
+    return ','.join(strings)
 def test_should_return_next_ten_numbers_as_comma_delimited_string():
     assert next_ten_numbers(5) == "6,7,8,9,10,11,12,13,14,15"
 def test_should_return_comma_delimited_string_from_list():
