@@ -1,3 +1,4 @@
+import csv
 def next_ten_numbers(num):
     """Generates the next 10 numbers from the given number as a comma-delimited string.
 
@@ -19,13 +20,24 @@ def list_to_comma_delimited_string(strings):
         A single string where each element is separated by a comma.
     """
     return ','.join(strings)
+def get_data():
+    
+    return [
+        ["Chance", 21, "Engineer"],  # Updated row
+        ["Bob", 30, "Designer"],
+        ["Charlie", 22, "Data Scientist"]
+    ]
+
+
 def get_headers():
     """Generates the headers for the CSV file.
 
     Returns:
         A list representing the column headers.
     """
-    return["Name", "Age", "Profession"]
+    return ["Name", "Age", "Profession"]
+
+
 def write_csv_file(filename):
     """Writes the headers and data to a CSV file.
 
@@ -37,20 +49,21 @@ def write_csv_file(filename):
 
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
-        # Write headers
-        writer.writerow(headers)
-        # Write data rows
-        writer.writerows(data)
+        writer.writerow(headers)  # Write headers
+        writer.writerows(data)  # Write data rows
+
 
 def test_should_return_next_ten_numbers_as_comma_delimited_string():
     assert next_ten_numbers(5) == "6,7,8,9,10,11,12,13,14,15"
 def test_should_return_comma_delimited_string_from_list():
     assert list_to_comma_delimited_string(["apple", "banana", "cherry"]) == "apple,banana,cherry"
+
 def test_should_write_csv_file():
     """Tests the write_csv_file function."""
-    write_csv_file("test.csv")
+    filename = "test.csv"
+    write_csv_file(filename)
 
-    with open("test.csv", mode='r') as file:
+    with open(filename, mode='r') as file:
         reader = csv.reader(file)
         rows = list(reader)
 
@@ -59,7 +72,7 @@ def test_should_write_csv_file():
 
         # Test data
         assert rows[1:] == [
-            ["Chance", "21", "Engineer"],
+            ["Chance", "21", "Engineer"],  # Updated test case
             ["Bob", "30", "Designer"],
             ["Charlie", "22", "Data Scientist"]
         ], "Data rows do not match."
