@@ -20,6 +20,11 @@ def list_to_comma_delimited_string(strings):
     """
     return ','.join(strings)
 def get_headers():
+    """Generates the headers for the CSV file.
+
+    Returns:
+        A list representing the column headers.
+    """
     return["Name", "Age", "Profession"]
 def test_should_return_next_ten_numbers_as_comma_delimited_string():
     assert next_ten_numbers(5) == "6,7,8,9,10,11,12,13,14,15"
