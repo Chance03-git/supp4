@@ -27,6 +27,11 @@ def get_headers():
     """
     return["Name", "Age", "Profession"]
 def write_csv_file(filename):
+    """Writes the headers and data to a CSV file.
+
+    Args:
+        filename: The name of the CSV file to create.
+    """
     headers = get_headers()
     data = get_data()
 
