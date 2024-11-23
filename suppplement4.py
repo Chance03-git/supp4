@@ -26,6 +26,17 @@ def get_headers():
         A list representing the column headers.
     """
     return["Name", "Age", "Profession"]
+def write_csv_file(filename):
+    headers = get_headers()
+    data = get_data()
+
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        # Write headers
+        writer.writerow(headers)
+        # Write data rows
+        writer.writerows(data)
+
 def test_should_return_next_ten_numbers_as_comma_delimited_string():
     assert next_ten_numbers(5) == "6,7,8,9,10,11,12,13,14,15"
 def test_should_return_comma_delimited_string_from_list():
