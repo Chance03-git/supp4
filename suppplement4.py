@@ -21,8 +21,12 @@ def list_to_comma_delimited_string(strings):
     """
     return ','.join(strings)
 def get_data():
-    
-    return [
+     """Generates a list of data rows.
+
+    Returns:
+        A list of lists, where each inner list represents a row of data.
+    """
+     return [
         ["Chance", 21, "Engineer"],  # Updated row
         ["Bob", 30, "Designer"],
         ["Charlie", 22, "Data Scientist"]
